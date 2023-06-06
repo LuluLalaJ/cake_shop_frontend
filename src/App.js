@@ -7,8 +7,8 @@ import ShoppingCart from "./components/shoppingcart/ShoppingCart";
 import Cakes from "./components/cakes/Cakes";
 import CakeCard from "./components/cakes/CakeCard";
 import Checkout from "./components/checkout/Checkout";
+import Login from "./components/login/Login";
 import Error from "./components/error/Error";
-
 
 
 // rfce + tab
@@ -18,6 +18,17 @@ import Error from "./components/error/Error";
 // div => main/section/article/etc.
 
 function App() {
+  const [user, setUser] = useState(null);
+  useEffect(()=> {
+    fetch('/check_session').
+    then(r => {
+      if (r.ok) {
+        r.json()
+        .then( user => setUser(user) )
+      }
+    })
+  }, [])
+
   return(
     <>
     <Nav />
@@ -37,10 +48,12 @@ function App() {
       <Route path="/checkout">
         <Checkout />
       </Route>
+      <Route path="/login">
+        <Login />
+      </Route>
       <Redirect to="/error">
         <Error />
       </Redirect>
-
     </Switch>
     </>
   )
