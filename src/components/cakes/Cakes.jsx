@@ -13,7 +13,7 @@ function Cakes({cakes}) {
     
 
   return(
-    <div>
+    <div className = 'container'>
       <h1>Cakes Page</h1>
       {renderCakes}
     </div>
