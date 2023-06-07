@@ -9,10 +9,10 @@ function Nav() {
 
   return (
     <div className="container nav-container">
-      <NavLink exact to="/" className="nav-link">
+      <NavLink to="/" exact className="nav-link">
         Home
       </NavLink>
-      <NavLink to="/about" className="nav-link">
+      <NavLink to="/about" exact className="nav-link">
         About
       </NavLink>
       <NavLink to="/cakes" className="nav-link">
