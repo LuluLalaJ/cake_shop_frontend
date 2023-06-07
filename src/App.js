@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect, NavLink} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import Home from "./components/home/Home";
 import Nav from "./components/nav/Nav";
 import About from "./components/about/About";

@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import "./about.css"
 
 function About() {
   return (
-    <div className='container'>
+    <div className='container about-container'>
       <h1>About Cake SHOP!</h1>
       <p>Introducing Shen and Kara's Cake Shop, a delightful confectionary haven that sprang to life in 2023. Nestled in the heart of town, this whimsical bakery is where creativity, flavor, and artistry unite to redefine the world of cake-making.</p>
       <p>Shen and Kara, the visionary duo behind the cake shop, share an unwavering passion for crafting incredible cakes that are as visually stunning as they are delicious. With an artistic flair, they infuse their creations with an explosion of color, transforming each cake into a mesmerizing work of edible art. From vibrant rainbows to intricate designs, their cakes truly make a statement and leave a lasting impression on anyone lucky enough to indulge.</p>

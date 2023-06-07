@@ -9,6 +9,7 @@ function Nav() {
 
   return (
     <div className="container nav-container">
+
       <NavLink to="/" exact className="nav-link">
         Home
       </NavLink>
@@ -34,7 +35,6 @@ function Nav() {
         </NavLink>
       )
       }
-
 
     </div>
   )
