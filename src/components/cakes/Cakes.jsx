@@ -1,8 +1,19 @@
 import React from 'react'
+import CakeCard from './CakeCard'
 
-function Cakes() {
+function Cakes({cakes}) {
+
+  const renderCakeCards = cakes.map (cake =>
+    <CakeCard
+      key = {cake.id}
+      cake = {cake}
+  />)
   return (
-    <div>Cakes</div>
+      <div>
+          <CakeCard
+          cake = {cake}
+          />
+      </div>
   )
 }
 
