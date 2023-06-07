@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Figure from 'react-bootstrap/Figure'
 import './cakes.css'
+import { CartContext } from '../../context/CartContext'
+
 
 function CakeCard({cake}) {
+  const { addToCart } = useContext(CartContext);
 
   return (
     <Figure className="cake-card">
@@ -16,7 +19,7 @@ function CakeCard({cake}) {
         <p>{cake.description} </p>
       </Figure.Caption>
       <br></br>
-      <button className='btn'>Add to Cart</button>
+      <button className='btn' onClick={(e)=>addToCart(cake)}>Add to Cart</button>
       <button className='btn'>Add to Favorites</button>
     </Figure>
   )
