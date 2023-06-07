@@ -1,3 +1,14 @@
 .cake-image {
-    width:50%
+    width:75%;
+    
+}
+
+.cake-caption { 
+    width:75%;
+}
+
+.card-container {
+    border: solid orange; 
+    width: 100%;
+    
 }
