@@ -87,3 +87,8 @@ img {
     width: 100%;
     object-fit: cover;
 }
+
+.active {
+    font-weight: bold;
+    text-decoration: underline;
+}

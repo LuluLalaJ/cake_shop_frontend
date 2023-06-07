@@ -1,10 +1,41 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
+import './nav.css'
 
 function Nav() {
+  const { user } = useContext(UserContext);
+  console.log(user)
+
   return (
     <div className="container nav-container">
-      
+      <NavLink exact to="/" className="nav-link">
+        Home
+      </NavLink>
+      <NavLink to="/about" className="nav-link">
+        About
+      </NavLink>
+      <NavLink to="/cakes" className="nav-link">
+        Cakes
+      </NavLink>
+      <NavLink to="/shoppingcart" className="nav-link">
+        Cart
+      </NavLink>
+
+      {!user
+      ? (
+        <NavLink to="/login" className="nav-link">
+          Login
+        </NavLink>
+      )
+      : (
+        <NavLink to="/logout" className="nav-link">
+          Logout
+        </NavLink>
+      )
+      }
+
+
     </div>
   )
 }
