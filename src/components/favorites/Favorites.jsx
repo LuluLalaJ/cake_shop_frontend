@@ -1,24 +1,31 @@
 import React from 'react'
 import CakeCard from '../cakes/CakeCard';
 
-function Favorites({favorite, cakes}) {
-  console.log(favorite)
-  // const filterFavorites = cakes.filter(cake => favorite.includes(cake.id))
-  
-  if (favorite.length !== 0) {
-    const renderFavCakes = favorite.map(cake => <div>{cake.name}</div>)
-    return ( <div> {renderFavCakes} </div> )
+function Favorites({favorite}) {
+
+  console.log('inside fav', favorite)
+  if (favorite.length === 0) {
+    return (
+      <div className='container'>
+        <h1>You don't have any favorites yet!</h1>
+      </div>
+    )
   }
-  
-    // <CakeCard
-    //       key = { cake.id }
-    //       cake = { cake }
-    //     />)
-  
+
+  const renderFav = favorite.map( fav => {
+    const cake = fav.cake
+    return (
+      <>
+        <p>{cake.name}</p>
+        <img src={cake.image}/>
+      </>
+    )
+  })
+
   return (
-    <div>
-      {/* {renderFavCakes} */}
-      "Hello"
+    <div className='container'>
+        <h1>Here are your favorites</h1>
+        {renderFav}
     </div>
   )
 }

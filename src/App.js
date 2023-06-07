@@ -29,14 +29,17 @@ function App() {
       .then((r) => r.json())
       .then(cakes => setCakes(cakes))
   }, []);
-  
+
 
   const [favorite, setFavorite] = useState([])
 
- 
-  function addFavoriteCake(id) {
+  useEffect(() => {
+    fetch('/favorites')
+    .then(r => r.json())
+    .then(favs => setFavorite(favs))
+  }, [])
 
-    console.log(id)
+  function addFavoriteCake(id) {
       fetch('/favorites', {
         method: 'POST',
         headers: {
@@ -46,11 +49,11 @@ function App() {
         body: JSON.stringify({cake_id: id})
       })
         .then(r=>r.json())
-        .then(data => setFavorite([...favorite, data.cake]))
-        
-
+        .then(data => setFavorite([...favorite, data]))
     }
-  
+
+  console.log('fav list', favorite)
+
   return(
     <Router>
       <Nav />
@@ -60,7 +63,7 @@ function App() {
         <Route path="/cakes"  render={(props) => <Cakes {...props} cakes = {cakes} addFavoriteCake = {addFavoriteCake}/>} />
         <Route path="/shoppingcart" component={ShoppingCart}/>
         <Route path="/checkout" component={Checkout} />
-        <Route path="/favorites" render={(props) => <Favorites {...props} cakes = {cakes} favorite = {favorite}/>} />
+        <Route path="/favorites" render={(props) => <Favorites {...props} favorite = {favorite}/>} />
         <Route path="/login" component={Login}/>
         <Route path="/logout" component={Logout} />
         <Route path="/signup" component={Signup} />
