@@ -1,10 +1,24 @@
 import React from 'react'
+import Figure from 'react-bootstrap/Figure'
 
-function CakeCard() {
+function CakeCard({cake}) {
+
   return (
-    <div>CakeCard</div>
+    <div>
+      {/* <img src = {cake.image}></img> */}
+      <Figure>
+      <Figure.Image 
+        src={cake.image}
+        />
+      <Figure.Caption>
+        <h1>{cake.name} </h1>
+        <h3>{cake.price} </h3>
+        <p>{cake.description} </p>
+      </Figure.Caption>
+    </Figure>
+    </div>
 
   )
 }
-// we need to import something to make this figure work, coming back to that
+
 export default CakeCard
