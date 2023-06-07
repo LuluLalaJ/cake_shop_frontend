@@ -4,8 +4,7 @@ import { UserContext } from '../../context/UserContext';
 import './nav.css'
 
 function Nav() {
-  const { user } = useContext(UserContext);
-  console.log(user)
+  const { user, logoutUser } = useContext(UserContext);
 
   return (
     <div className="container nav-container">
@@ -30,9 +29,9 @@ function Nav() {
         </NavLink>
       )
       : (
-        <NavLink to="/logout" className="nav-link">
+        <button className="btn" onClick={logoutUser}>
           Logout
-        </NavLink>
+        </button>
       )
       }
 
