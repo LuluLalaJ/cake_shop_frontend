@@ -70,3 +70,13 @@
 .hidden {
     display: none;
 }
+
+.dark {
+    background-color: #141411;
+    color: #f5c414;
+}
+
+.light {
+    background-color: #f5c414;
+    color: black;
+}
