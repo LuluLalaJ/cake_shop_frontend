@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Nav() {
   return (
-    <div>Nav</div>
+    <div className="container nav-container">
+      
+    </div>
   )
 }
 
