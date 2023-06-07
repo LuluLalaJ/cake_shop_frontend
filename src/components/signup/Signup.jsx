@@ -6,16 +6,7 @@ import * as yup from "yup";
 
 
 function Signup() {
-  const { user, setUser} = useContext(UserContext);
-  const [refreshPage, setRefreshPage] = useState(false);
-
-  useEffect(() => {
-    fetch("/check_session")
-      .then((res) => res.json())
-      .then((data) => {
-        setUser(data);
-      });
-  }, [refreshPage]);
+  const { user, refresh} = useContext(UserContext);
 
   const formSchema = yup.object().shape({
     email: yup.string().email("Invalid email").required("Must enter email"),
@@ -42,7 +33,7 @@ function Signup() {
         body: JSON.stringify(values, null, 2),
       }).then((res) => {
         if (res.status == 201) {
-          setRefreshPage(!refreshPage);
+          refresh();
         }
       });
     },
@@ -87,7 +78,7 @@ function Signup() {
           value={formik.values.password}
         />
         <p> {formik.errors.password}</p>
-        <button type="submit" className='btn'>Submit</button>
+        <button type="submit" className='btn'>Sign up</button>
       </form>
     </div>
   );
