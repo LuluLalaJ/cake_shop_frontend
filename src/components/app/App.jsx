@@ -7,9 +7,7 @@ function App() {
     return (
         <div>
             <Header/>
-            <DarkMode/>
-    
-            <div>Cake SHOP!</div>
+            {/* <PageContainer/> wasn't sure if we wanted to do it this way */}
         </div>
 
     )
