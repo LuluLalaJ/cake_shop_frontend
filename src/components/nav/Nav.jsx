@@ -11,6 +11,8 @@ function Nav() {
         >
           Home
         </NavLink>
+
+
         <NavLink className='nav-buttons'
           to="/discography"
           exact
@@ -19,6 +21,8 @@ function Nav() {
         >
           Discography
         </NavLink>
+
+
         <NavLink className='nav-buttons'
           to="/schedule"
           exact
@@ -27,6 +31,7 @@ function Nav() {
         >
           Tour Schedule
         </NavLink>
+  
   
         <NavLink
           to="/create" className='nav-buttons'
