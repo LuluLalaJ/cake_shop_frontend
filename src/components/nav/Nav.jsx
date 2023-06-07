@@ -5,7 +5,6 @@ import './nav.css'
 
 function Nav() {
   const { user } = useContext(UserContext);
-  console.log(user)
 
   return (
     <div className="container nav-container">

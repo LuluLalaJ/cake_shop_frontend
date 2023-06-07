@@ -9,6 +9,7 @@ import CakeCard from "./components/cakes/CakeCard";
 import Checkout from "./components/checkout/Checkout";
 import Login from "./components/login/Login";
 import Logout from "./components/logout/Logout";
+import Signup from "./components/signup/Signup";
 import Error from "./components/error/Error";
 
 
@@ -19,6 +20,7 @@ import Error from "./components/error/Error";
 // div => main/section/article/etc.
 
 function App() {
+
 
   return(
     <Router>
@@ -31,6 +33,7 @@ function App() {
         <Route path="/checkout" component={Checkout}/>
         <Route path="/login" component={Login}/>
         <Route path="/logout" component={Logout} />
+        <Route path="/signup" component={Signup} />
         <Redirect to="/error" component={Error} />
       </Switch>
     </Router>
