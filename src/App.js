@@ -20,15 +20,25 @@ import Error from "./components/error/Error";
 
 function App() {
 
+  const [cakes, setCakes] = useState([])
+
+  useEffect(() => {
+    fetch("/cakes")
+      .then((r) => r.json())
+      .then(cakes => setCakes(cakes))
+  }, []);
+  
+
+
   return(
     <Router>
       <Nav />
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/about" component={About}/>
-        <Route path="/cakes" component={Cakes}/>
+        <Route path="/cakes"  render={(props) => <Cakes {...props} cakes = {cakes}/>} />
         <Route path="/shoppingcart" component={ShoppingCart}/>
-        <Route path="/checkout" component={Checkout}/>
+        <Route path="/checkout" component={Checkout} />
         <Route path="/login" component={Login}/>
         <Route path="/logout" component={Logout} />
         <Redirect to="/error" component={Error} />
