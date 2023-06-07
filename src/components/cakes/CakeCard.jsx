@@ -2,11 +2,11 @@ import React from 'react'
 import Figure from 'react-bootstrap/Figure'
 import './cakes.css'
 
-function CakeCard({cake}) {
+function CakeCard({cake, addFavoriteCake}) {
 
   return (
     <Figure className="cake-card">
-     <Figure.Image
+      <Figure.Image
         src={cake.image}
         className='cake-image'
         />
@@ -16,8 +16,8 @@ function CakeCard({cake}) {
         <p>{cake.description} </p>
       </Figure.Caption>
       <br></br>
-      <button className='btn'>Add to Cart</button>
-      <button className='btn'>Add to Favorites</button>
+      <button className='btn' >Add to Cart</button>
+      <button className='btn' onClick = {() => addFavoriteCake(cake.id)} >Add to Favorites</button>
     </Figure>
   )
 }

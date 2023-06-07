@@ -1,9 +1,10 @@
-import React, {useEffect, useState}  from 'react'
-import Figure from 'react-bootstrap/Figure'
-import CakeCard from './CakeCard'
+import React, {useEffect, useState}  from 'react';
+import Figure from 'react-bootstrap/Figure';
+import CakeCard from './CakeCard';
+
 import "./cakes.css"
 
-function Cakes({cakes}) {
+function Cakes({cakes, addFavoriteCake}) {
 
   console.log(cakes)
 
@@ -11,6 +12,7 @@ function Cakes({cakes}) {
         <CakeCard
           key = { cake.id }
           cake = { cake }
+          addFavoriteCake = {addFavoriteCake}
         />)
 
 

@@ -18,6 +18,9 @@ function Nav() {
       <NavLink to="/cakes" className="nav-link">
         Cakes
       </NavLink>
+      <NavLink to="/favorites" className="nav-link">
+        Favorites
+      </NavLink>
       <NavLink to="/shoppingcart" className="nav-link">
         Cart
       </NavLink>
