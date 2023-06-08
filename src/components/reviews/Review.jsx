@@ -4,13 +4,15 @@ import { ReviewContext } from '../../context/ReviewContext';
 import { CakeContext } from '../../context/CakeContext';
 import ReviewCard from './ReviewCard'
 import CakeCard from './../cakes/CakeCard';
+import "./review.css"
 
 function Review({}) {
 
   const { cakeId } = useParams()
   const { reviews, getReviewsByCakeId } = useContext(ReviewContext);
-  const { getReviewCakeByCakeId } = useContext(CakeContext);
+  const { reviewCake, getReviewCakeByCakeId } = useContext(CakeContext);
   
+  console.log(reviewCake)
   
   useEffect( () => {
     getReviewsByCakeId(cakeId)
@@ -22,12 +24,6 @@ function Review({}) {
 
   
 
-  // const renderReviewCake = reviewCake.map(cake => 
-  //   <CakeCard
-  //     key = { cake.id }
-  //     cake = { cake }
-  // />)
-
   if (reviews.length === 0) {
     return (
       <div className="container">
@@ -35,10 +31,14 @@ function Review({}) {
       </div>
     )
   }
+  
+  const {image, name} = reviewCake
+
   return (
     <div className='container'>
       <h1> Reviews</h1>
-      {/* {renderReviewCake} */}
+      <img id = 'cake-image'src = {image}></img>
+      <h1>{name}</h1>
       {reviews.map( review => <ReviewCard key={review.id} review={review}/>)}
     </div>
   )
