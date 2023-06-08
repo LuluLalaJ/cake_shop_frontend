@@ -38,7 +38,6 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/signup" component={Signup} />
         <Route path="/mypage" component={MyPage} />
-        {/* <Route path="/reviews/:cakeId" component={Review} /> */}
         <Route
           path="/reviews/:cakeId"
           render={({ match }) => {

@@ -12,8 +12,6 @@ function Review({}) {
   const { reviews, getReviewsByCakeId } = useContext(ReviewContext);
   const { reviewCake, getReviewCakeByCakeId } = useContext(CakeContext);
 
-  console.log(reviewCake)
-
   useEffect( () => {
     getReviewsByCakeId(cakeId)
   }, [])
