@@ -58,10 +58,39 @@ export const ReviewProvider = ({ children }) => {
       })
     }
 
+    function editReviewByReviewId(id, content) {
+      const review = {
+        'content': content
+      }
+
+      fetch(`/reviews/${id}`, {
+        method: 'PATCH',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(review)
+      }).then(res => {
+        if (res.status === 200) {
+          res.json().
+          then( data => {
+            console.log(data)
+            const updatedReviews = reviews.map( review => {
+              if (review.id === data.id) {
+                return data
+              }
+              return review
+            })
+          setReviews(updatedReviews)
+          })
+        }
+      })
+    }
+
+
 
   return (
     <ReviewContext.Provider
-        value={{ reviews, getReviewByUserId, getReviewsByCakeId, deleteReviewByReviewId, submitReviewByCakeId}}
+        value={{ reviews, getReviewByUserId, getReviewsByCakeId, deleteReviewByReviewId, editReviewByReviewId, submitReviewByCakeId}}
     >
         {children}
     </ReviewContext.Provider>
