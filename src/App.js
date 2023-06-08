@@ -8,7 +8,6 @@ import Cakes from "./components/cakes/Cakes";
 import Checkout from "./components/checkout/Checkout";
 import Favorites from "./components/favorites/Favorites";
 import Login from "./components/login/Login";
-import Logout from "./components/logout/Logout";
 import Signup from "./components/signup/Signup";
 import Error from "./components/error/Error";
 import Review from "./components/reviews/Review";
@@ -40,7 +39,6 @@ function App() {
         <Route path="/checkout" component={Checkout} />
         <Route path="/favorites" component={Favorites} />
         <Route path="/login" component={Login}/>
-        <Route path="/logout" component={Logout} />
         <Route path="/signup" component={Signup} />
         <Route path="/reviews/:cakeId" component={Review} />
         <Redirect to="/error" component={Error} />
