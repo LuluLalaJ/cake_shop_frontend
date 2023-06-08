@@ -46,7 +46,8 @@ function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/mypage" component={MyPage} />
         <Route path="/reviews/:cakeId" component={Review} />
-        <Redirect to="/error" component={Error} />
+        <Route path="/error" component={Error} />
+        <Redirect to="/error" />
       </Switch>
     </Router>
   )

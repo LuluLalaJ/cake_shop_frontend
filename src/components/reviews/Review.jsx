@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { useParams, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { ReviewContext } from '../../context/ReviewContext';
 import { CakeContext } from '../../context/CakeContext';
 import ReviewCard from './ReviewCard'
@@ -11,9 +11,9 @@ function Review({}) {
   const { cakeId } = useParams()
   const { reviews, getReviewsByCakeId } = useContext(ReviewContext);
   const { reviewCake, getReviewCakeByCakeId } = useContext(CakeContext);
-  
+
   console.log(reviewCake)
-  
+
   useEffect( () => {
     getReviewsByCakeId(cakeId)
   }, [])
@@ -22,16 +22,12 @@ function Review({}) {
     getReviewCakeByCakeId(cakeId)
   }, [])
 
-  
 
-  if (reviews.length === 0) {
-    return (
-      <div className="container">
-        <h1>Loading...</h1>
-      </div>
-    )
-  }
-  
+
+  if (reviews.length === 0) return (
+      <Redirect to="/error" />
+  )
+
   const {image, name} = reviewCake
 
   return (
