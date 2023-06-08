@@ -7,7 +7,6 @@ import { CartProvider } from "./context/CartContext";
 import { FavoriteProvider }  from "./context/FavoriteContext";
 import { ReviewProvider } from "./context/ReviewContext";
 
-
 function Root() {
     return (
         <CartProvider>
