@@ -20,9 +20,7 @@ import Error from "./components/error/Error";
 // div => main/section/article/etc.
 
 function App() {
-
   const [cakes, setCakes] = useState([])
-
   useEffect(() => {
     fetch("/cakes")
       .then((r) => r.json())
@@ -31,7 +29,6 @@ function App() {
 
 
   const [favorite, setFavorite] = useState([])
-
   useEffect(() => {
     fetch('/favorites')
     .then(r => r.json())
@@ -50,8 +47,6 @@ function App() {
         .then(r=>r.json())
         .then(data => setFavorite([...favorite, data]))
     }
-
-  console.log('fav list', favorite)
 
   return(
     <Router>
