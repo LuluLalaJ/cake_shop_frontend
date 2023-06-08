@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import Home from "./components/home/Home";
 import Nav from "./components/nav/Nav";
@@ -20,6 +20,7 @@ import Error from "./components/error/Error";
 // div => main/section/article/etc.
 
 function App() {
+
   const [cakes, setCakes] = useState([])
   useEffect(() => {
     fetch("/cakes")
@@ -27,37 +28,16 @@ function App() {
       .then(cakes => setCakes(cakes))
   }, []);
 
-
-  const [favorite, setFavorite] = useState([])
-  useEffect(() => {
-    fetch('/favorites')
-    .then(r => r.json())
-    .then(favs => setFavorite(favs))
-  }, [])
-
-  function addFavoriteCake(id) {
-      fetch('/favorites', {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json",
-          "Accepts" : "application/json"
-        },
-        body: JSON.stringify({cake_id: id})
-      })
-        .then(r=>r.json())
-        .then(data => setFavorite([...favorite, data]))
-    }
-
   return(
     <Router>
       <Nav />
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/about" component={About}/>
-        <Route path="/cakes"  render={(props) => <Cakes {...props} cakes = {cakes} addFavoriteCake = {addFavoriteCake}/>} />
+        <Route path="/cakes"  render={(props) => <Cakes {...props} cakes = {cakes}/>} />
         <Route path="/shoppingcart" component={ShoppingCart}/>
         <Route path="/checkout" component={Checkout} />
-        <Route path="/favorites" render={(props) => <Favorites {...props} favorite = {favorite}/>} />
+        <Route path="/favorites" component={Favorites} />
         <Route path="/login" component={Login}/>
         <Route path="/logout" component={Logout} />
         <Route path="/signup" component={Signup} />

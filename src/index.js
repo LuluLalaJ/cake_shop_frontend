@@ -4,6 +4,7 @@ import './index.css'
 import App from './App'
 import { UserProvider } from "./context/UserContext";
 import { CartProvider } from "./context/CartContext";
+import { FavoriteProvider }  from "./context/FavoriteContext";
 
 
 
@@ -11,7 +12,9 @@ function Root() {
     return (
         <CartProvider>
             <UserProvider>
-                <App />
+                <FavoriteProvider>
+                    <App />
+                </FavoriteProvider>
             </UserProvider>
         </CartProvider>
     )

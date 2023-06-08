@@ -4,15 +4,12 @@ import CakeCard from './CakeCard';
 
 import "./cakes.css"
 
-function Cakes({cakes, addFavoriteCake}) {
-
-  console.log(cakes)
+function Cakes({cakes}) {
 
   const renderCakes = cakes.map(cake =>
         <CakeCard
           key = { cake.id }
           cake = { cake }
-          addFavoriteCake = {addFavoriteCake}
         />)
 
 
