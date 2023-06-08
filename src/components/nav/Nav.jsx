@@ -2,11 +2,14 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import { CartContext } from '../../context/CartContext';
+import { FavoriteContext } from '../../context/FavoriteContext'
+
 import './nav.css'
 
 function Nav() {
   const { user, logoutUser } = useContext(UserContext);
   const { clearCart } = useContext(CartContext)
+  const { clearFavs} = useContext(FavoriteContext)
 
 
   // we really should have setup shopping cart in the database
@@ -16,6 +19,8 @@ function Nav() {
   const logout = () => {
     logoutUser()
     clearCart()
+    clearFavs()
+
   }
 
   return (

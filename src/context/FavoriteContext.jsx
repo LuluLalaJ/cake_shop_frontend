@@ -40,10 +40,13 @@ export const FavoriteProvider = ({ children }) => {
         })
     }
 
+    const clearFavs = () => {
+      setFavorites([])
+  }
 
   return (
     <FavoriteContext.Provider
-        value={{ favorites, addFavoriteCake, removeFromFav }}
+        value={{ favorites, setFavorites, addFavoriteCake, removeFromFav, clearFavs, }}
     >
         {children}
     </FavoriteContext.Provider>
