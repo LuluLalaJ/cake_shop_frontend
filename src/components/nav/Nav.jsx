@@ -3,24 +3,17 @@ import { NavLink } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import { CartContext } from '../../context/CartContext';
 import { FavoriteContext } from '../../context/FavoriteContext'
-
 import './nav.css'
 
 function Nav() {
   const { user, logoutUser } = useContext(UserContext);
   const { clearCart } = useContext(CartContext)
-  const { clearFavs} = useContext(FavoriteContext)
+  const { clearFavs } = useContext(FavoriteContext)
 
-
-  // we really should have setup shopping cart in the database
-  // as right now, logout will clearthe cart
-  // but if the user simply closes the window etc but not log out
-  // the cart info is still there
   const logout = () => {
     logoutUser()
     clearCart()
     clearFavs()
-
   }
 
   return (

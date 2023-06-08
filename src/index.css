@@ -15,10 +15,10 @@
     --color-bg-variant: #b94366;
     --color-primary: #fecfd9;
     --color-primary-variant: #fdbfcc;
-    --color-light: #ffeff2;
+    --color-light: #fdf7f9;
     --color-dark: #33000D;
 
-    --container-width-lg: 75%;
+    --container-width-lg: 80%;
     --container-width-md: 85%;
     --container-width-sm: 90%;
 
@@ -75,7 +75,7 @@ a:hover {
     cursor: pointer;
     border: 1px solid var(--color-primary);
     transition: var(--transition);
-    
+
 }
 
 .btn:hover {
@@ -93,4 +93,23 @@ img {
 .active {
     font-weight: bold;
     text-decoration: underline;
+}
+
+/*=========MEDIA QUERIES=========*/
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: var(--container-width-md)
+    }
+
+    section {
+        margin-top: 6rem;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: var(--container-width-sm)
+    }
 }

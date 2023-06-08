@@ -1,11 +1,11 @@
 .home-container {
-    margin-top: 3rem;
-    padding: 3rem;
+    margin-top: 2rem;
+    padding: 2rem 1rem;
     border-radius: 4rem;
     min-height: 60vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8rem;
+    gap: 10rem;
     place-items: center;
     background-color: transparent;
     border: solid var(--color-bg) 2px;
@@ -18,7 +18,7 @@
 
 p {
     line-height: 2;
-    max-width: 45em;
+    max-width: 25rem;
     margin-bottom: 2rem;
     font-size: 1.25rem;
 }
@@ -31,15 +31,19 @@ h1 {
 .img-container {
     display: block;
     position: relative;
+    /* border: solid purple 5px; */
+
 }
 
 .main-img {
     width: 100%;
-    height: 550px;
+    height: 450px;
     position: relative;
     border-radius: 2rem;
     display: block;
     object-fit: cover;
+    /* border: solid green 5px; */
+
 }
 
 .accent-img {
@@ -50,4 +54,41 @@ h1 {
     transform: translateX(-70%);
     border-radius: 2rem;
     box-shadow: 10px 10px 10px var(--color-bg);
+}
+
+/* ========= MEDIA QUERIES (MEDIUM DEVICES) ========= */
+@media screen and (max-width: 1024px) {
+    .container.home-container {
+        gap: 1rem;
+        padding: 2rem;
+    }
+
+    .main-img {
+        display: none;
+
+
+    }
+    .accent-img {
+        position: relative;
+        transform: translateX(0);
+        width: 100%;
+    }
+}
+
+/* ========= MEDIA QUERIES (SMALL DEVICES) ========= */
+@media screen and (max-width: 600px) {
+    .container.home-container {
+            margin-top: 2rem;
+            padding: 2rem 1rem;
+            border-radius: 4rem;
+            min-height: 60vh;
+            display: block;
+            background-color: transparent;
+            border: solid var(--color-bg) 2px;
+            transition: var(--transition);
+        }
+
+    .accent-img {
+        display: none;
+    }
 }
