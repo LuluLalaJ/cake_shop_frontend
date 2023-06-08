@@ -52,7 +52,8 @@ export const ReviewProvider = ({ children }) => {
         body: JSON.stringify(review)
       }).then(res => {
         if (res.status === 201) {
-          console.log(res)
+          res.json().
+          then(data => setReviews([...reviews, data]))
         }
       })
     }
