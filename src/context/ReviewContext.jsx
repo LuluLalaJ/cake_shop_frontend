@@ -73,7 +73,6 @@ export const ReviewProvider = ({ children }) => {
         if (res.status === 200) {
           res.json().
           then( data => {
-            console.log(data)
             const updatedReviews = reviews.map( review => {
               if (review.id === data.id) {
                 return data
