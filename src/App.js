@@ -11,6 +11,7 @@ import Login from "./components/login/Login";
 import Logout from "./components/logout/Logout";
 import Signup from "./components/signup/Signup";
 import Error from "./components/error/Error";
+import Review from "./components/reviews/Review";
 
 
 // rfce + tab
@@ -41,6 +42,7 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/logout" component={Logout} />
         <Route path="/signup" component={Signup} />
+        <Route path="/reviews/:cakeId" component={Review} />
         <Redirect to="/error" component={Error} />
       </Switch>
     </Router>

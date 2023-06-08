@@ -5,7 +5,7 @@ import App from './App'
 import { UserProvider } from "./context/UserContext";
 import { CartProvider } from "./context/CartContext";
 import { FavoriteProvider }  from "./context/FavoriteContext";
-
+import { ReviewProvider } from "./context/ReviewContext";
 
 
 function Root() {
@@ -13,7 +13,9 @@ function Root() {
         <CartProvider>
             <UserProvider>
                 <FavoriteProvider>
-                    <App />
+                    <ReviewProvider>
+                        <App />
+                    </ReviewProvider>
                 </FavoriteProvider>
             </UserProvider>
         </CartProvider>
