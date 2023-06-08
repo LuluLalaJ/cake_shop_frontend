@@ -2,14 +2,14 @@ import React, { useContext, useEffect, useState }from 'react';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { UserContext } from '../../context/UserContext';
 import { ReviewContext } from '../../context/ReviewContext';
+import PastOrderCard from './PastOrderCard'
 
 import './mypage.css'
 
 function MyPage() {
   const { user, refresh} = useContext(UserContext);
+  const { reviews, deleteReviewByReviewId, getReviewByUserId } = useContext(ReviewContext)
   const [ orders, setOrders ]= useState([])
-  const [ reviewsByUser, setReviewsByUser ] = useState([])
-    const { reviews, deleteReviewByReviewId, getReviewByUserId } = useContext(ReviewContext)
 
   useEffect( () => {
     if (user) {
@@ -23,18 +23,10 @@ function MyPage() {
     }
   }, [user])
 
-  const renderPastOrders = orders.map( order =>
-      <div key={order.id}>
-        {/* some bugs related to slice here - needs to be fixed */}
-        <h3>- Order created: {order.created_at}
-        </h3>
-        {order.order_cakes.map( (order, index) => <div key={index}>
-            <li className='past-order-info'>• Cake: {order.cake.name} |
-            Quantity: {order.quantity} </li>
-          </div>)}
-        <p> Total: $ {order.total_price}</p>
-      </div>
-  )
+
+  const renderPastOrders = orders.map( (order, index) => (
+    <PastOrderCard key={index} order={order}/>
+  ))
 
   useEffect( () => {
     if (user) {
