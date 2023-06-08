@@ -2,11 +2,14 @@ import React, { useContext } from 'react'
 import Figure from 'react-bootstrap/Figure'
 import './cakes.css'
 import { CartContext } from '../../context/CartContext'
+import { FavoriteContext } from '../../context/FavoriteContext';
 
 
 
-function CakeCard({cake, addFavoriteCake}) {
+function CakeCard({cake}) {
   const { addToCart } = useContext(CartContext);
+  const { addFavoriteCake } = useContext(FavoriteContext);
+
 
   return (
     <Figure className="cake-card">

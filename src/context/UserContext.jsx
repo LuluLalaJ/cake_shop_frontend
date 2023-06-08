@@ -13,7 +13,6 @@ export const UserProvider = ({ children }) => {
         res.json()
         .then( data => {
           setUser(data)
-          console.log(data)
         } )
       }
     })

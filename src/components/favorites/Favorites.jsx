@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import FavoriteCard from './FavoriteCard';
+import { FavoriteContext } from '../../context/FavoriteContext';
 
-function Favorites({favorite}) {
+function Favorites() {
+  const { favorites } = useContext(FavoriteContext);
 
-  console.log('inside fav', favorite)
-  if (favorite.length === 0) {
+  if (favorites.length === 0) {
     return (
       <div className='container'>
         <h1>You don't have any favorites yet!</h1>
@@ -11,20 +13,12 @@ function Favorites({favorite}) {
     )
   }
 
-  // const renderFav = favorite.map( fav => {
-  //   const cake = fav.cake
-  //   return (
-  //     <>
-  //       <p>{cake.name}</p>
-  //       <img src={cake.image}/>
-  //     </>
-  //   )
-  // })
+  const renderFav = favorites.map( (fav, index) => <FavoriteCard key={fav.id} cake={fav.cake} fav_id = {fav.id} index={index + 1}/>)
 
   return (
     <div className='container'>
         <h1>Here are your favorites</h1>
-        {/* {renderFav} */}
+        {renderFav}
     </div>
   )
 }
