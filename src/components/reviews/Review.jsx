@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { ReviewContext } from '../../context/ReviewContext';
 import ReviewCard from './ReviewCard'
 
-function Review() {
+function Review({}) {
+
   const { cakeId } = useParams()
   const { reviews, getReviewsByCakeId } = useContext(ReviewContext);
 
@@ -18,11 +19,9 @@ function Review() {
       </div>
     )
   }
-
-  console.log('inside review component', reviews)
   return (
     <div className='container'>
-      <h1>Reviews</h1>
+      <h1> Reviews</h1>
       {reviews.map( review => <ReviewCard key={review.id} review={review}/>)}
     </div>
   )

@@ -15,8 +15,6 @@ export const ReviewProvider = ({ children }) => {
     })
   }
 
-  console.log('inside review context', reviews)
-
   // useEffect(() => {
   //   fetch('/favorites')
   //   .then(r => {
@@ -40,21 +38,21 @@ export const ReviewProvider = ({ children }) => {
   //       )
   //   }
 
-  //   function removeFromFav(id) {
-  //       fetch(`favorites/${id}`, {
-  //           method: "DELETE"
-  //       }).then(r => {
-  //           if (r.status === 204) {
-  //               const updatedFavs = favorites.filter(fav => fav.id !== id)
-  //               setFavorites(updatedFavs)
-  //           }
-  //       })
-  //   }
+    function deleteReviewByReviewId(id) {
+        fetch(`/reviews/${id}`, {
+            method: "DELETE"
+        }).then(r => {
+            if (r.status === 204) {
+                const updatedReviews = reviews.filter(review => review.id !== id)
+                setReviews(updatedReviews)
+            }
+        })
+    }
 
 
   return (
     <ReviewContext.Provider
-        value={{ reviews, getReviewsByCakeId }}
+        value={{ reviews, getReviewsByCakeId, deleteReviewByReviewId}}
     >
         {children}
     </ReviewContext.Provider>
