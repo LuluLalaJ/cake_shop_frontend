@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import { UserProvider } from "./context/UserContext";
+import { CartProvider } from "./context/CartContext";
 
 
 
 function Root() {
     return (
-        <UserProvider>
-            <App />
-        </UserProvider>
+        <CartProvider>
+            <UserProvider>
+                <App />
+            </UserProvider>
+        </CartProvider>
     )
 }
 
