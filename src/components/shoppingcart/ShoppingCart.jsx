@@ -19,7 +19,11 @@ function ShoppingCart() {
     return (
       <div className="container">
         <h1>You're not logged in yet!</h1>
-        <h2><Link to="/login">Log in</Link> to shop cakes!</h2>
+        {/* <h2><Link to="/login">Log in</Link> to shop cakes!</h2> */}
+        <h2>Log in or create an account to shop cakes!</h2>
+        <br></br>
+        <Link to="/login"><button className="btn">Get Started</button></Link>
+        
       </div>
     )
   }
