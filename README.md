@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Cake SHOP!
+#### Contributors: Chen Jiang, Sarah Baughman
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+Utilizing a Flask API backend with a React frontend, Cake SHOP! is a business app intended to give users access to the many offerings of a cake shop, as well as provide an easy way for the business to take in orders. 
 
-## Available Scripts
+## User Story
+A user interacting the site may do the following:
+ -  Visit the Home and About page to learn more about the Cake SHOP business
+ - Move through various pages with just a click using a navigation bar
+ - View the cake offerings and cake information, includes a "Read More" button to expand and reveal more text
+ - Click "Reviews" button to view reviews specific to each cake
+ - Create, login and logout of a user account in order to store user information
+ - Click "Add to Cart" button to add cakes to cart with login/logout and refresh page persistance
+ - Adjust quantity of each cake in the Cart and submit an order
+ - Click "Add to Favorites" button to add cakes to a Favorites page with login/logout and refresh page persistance
+ - View MyPage to view past orders and write, view and delete reviews for purchased cakes 
 
-In the project directory, you can run:
 
-### `npm start`
+# Code Files
+Fork and clone:
+ - Frontend - https://github.com/LuluLalaJ/cake_shop_frontend
+ - Backend - https://github.com/LuluLalaJ/cake_shop_backend 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Setup
+Be sure to run both the backend and frontend for the full app experience.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Frontend Setup
+To download dependencies and get started, in the project directory run: 
 
-### `npm test`
+```console
+$ npm install
+$ npm start
+```
+The React app will run in a separate window on [http://localhost:4000]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Backend Setup
+To download dependencies and get started, in the project directory run: 
 
-### `npm run build`
+```console
+$ pipenv install
+$ pipenv shell
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can run the Flask API on [http://127.0.0.1:5555] in the project directory by running: 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```console
+$ python app.py
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Frontend Information
+#### Project Requirements
+- Use forms and validation through Formik on all input
+- At least one datatype validation
+- At least one string/number format validation
+- Have at least three different client-side routes using React Router
+- Include navigation bar or other UI element allowing users to navigate between routes
+- Connect the client and server using fetch()
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Component Heirarchy
+- App
+    - About
+    - Cakes
+        - CakeCard
+    - ShoppingCart
+    - CheckOut
+    - Favorites
+        - FavoriteCard
+    - Login
+    - Home
+    - Signup
+    - MyPage
+        - PastOrderCard
+            - PastCakeCard
+                - ReviewForm
+        - MyPagePreviewCard
+    - Error
+    - Nav
+    - Review
+        - ReviewCard
+    - Signup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Backend Information
+#### Project Requirements
+- Have at least three models on the backend
+- Include at least two one-to-many relationships
+- Include at least one reciprocal many-to-many  relationship
+- Full CRUD actions for at least one resource
+- Minimum of create and read actions for each resource
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Models
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
