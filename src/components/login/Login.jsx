@@ -1,11 +1,14 @@
 import React, { useContext} from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
+import { FavoriteContext } from '../../context/FavoriteContext'
+
 import { useFormik } from "formik";
 import * as yup from "yup";
 
 function Login() {
   const { user, refresh } = useContext(UserContext);
+  const { favorites, setFavorites } = useContext(FavoriteContext)
 
   const formSchema = yup.object().shape({
     username: yup.string().required("Must enter a username").max(20),
@@ -37,6 +40,13 @@ function Login() {
   });
 
   if (user) {
+    fetch('/favorites')
+    .then(r => {
+      if (r.status === 200) {
+        r.json().then(favs => setFavorites(favs))
+      }
+    })
+    
     return <Redirect to="/mypage"/>;
   }
 

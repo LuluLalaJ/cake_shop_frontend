@@ -8,9 +8,10 @@ function FavoriteCard({ fav_id, cake, index}) {
 
   return (
     <div className='container'>
+        <img src={image} atl={name}/>
         <p> {index}. {cake.name}</p>
         <button className="btn" onClick={()=>removeFromFav(fav_id)}>remove from favorites</button>
-        <img src={image} atl={name}/>
+        
     </div>
   )
 }
