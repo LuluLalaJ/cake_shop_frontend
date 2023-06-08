@@ -13,13 +13,6 @@ import Error from "./components/error/Error";
 import Review from "./components/reviews/Review";
 import MyPage from './components/mypage/MyPage'
 
-
-// rfce + tab
-// div + tab --> <div></div>
-// div. + tab --> <div className=""></div>
-// div.special --> <div className="special"></div>
-// div => main/section/article/etc.
-
 function App() {
 
   const [cakes, setCakes] = useState([])
@@ -45,7 +38,20 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/signup" component={Signup} />
         <Route path="/mypage" component={MyPage} />
-        <Route path="/reviews/:cakeId" component={Review} />
+        {/* <Route path="/reviews/:cakeId" component={Review} /> */}
+        <Route
+          path="/reviews/:cakeId"
+          render={({ match }) => {
+            const cakeId = parseInt(match.params.cakeId);
+            const cake = cakes.find((cake) => cake.id === cakeId);
+
+            if (!cake) {
+              return <Error />;
+            } else {
+              return <Review />;
+            }
+          }}
+        />
         <Route path="/error" component={Error} />
         <Redirect to="/error" />
       </Switch>

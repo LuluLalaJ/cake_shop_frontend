@@ -22,12 +22,6 @@ function Review({}) {
     getReviewCakeByCakeId(cakeId)
   }, [])
 
-
-
-  if (reviews.length === 0) return (
-      <Redirect to="/error" />
-  )
-
   const {image, name} = reviewCake
 
   return (
@@ -35,9 +29,8 @@ function Review({}) {
       <h1> Reviews</h1>
       <img id = 'cake-image'src = {image}></img>
       <h1>{name}</h1>
+      {reviews.length === 0 && <h2>No one has reviewed this cake yet!</h2>}
       <Link to = {`/cakes`}><button className='btn' >Back To Cakes</button></Link>
-      <br></br>
-      <br></br>
       {reviews.map( review => <ReviewCard key={review.id} review={review}/>)}
     </div>
   )
