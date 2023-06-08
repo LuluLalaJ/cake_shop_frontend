@@ -1,10 +1,22 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
+import { CartContext } from '../../context/CartContext';
 import './nav.css'
 
 function Nav() {
   const { user, logoutUser } = useContext(UserContext);
+  const { clearCart } = useContext(CartContext)
+
+
+  // we really should have setup shopping cart in the database
+  // as right now, logout will clearthe cart
+  // but if the user simply closes the window etc but not log out
+  // the cart info is still there
+  const logout = () => {
+    logoutUser()
+    clearCart()
+  }
 
   return (
     <div className="container nav-container">
@@ -29,7 +41,7 @@ function Nav() {
         </NavLink>
       )
       : (
-        <button className="btn" onClick={logoutUser}>
+        <button className="btn" onClick={logout}>
           Logout
         </button>
       )

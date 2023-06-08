@@ -2,14 +2,18 @@ import React, { useContext } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext'
 import { UserContext } from '../../context/UserContext';
+import { AiFillPlusCircle, AiFillMinusCircle} from 'react-icons/ai'
 import './shoppingcart.css'
 
 
 function ShoppingCart() {
   const { user } = useContext(UserContext);
-  const { cartItems, clearCart } = useContext(CartContext);
+  const { cartItems, clearCart,
+    addToCart, removeFromCart, submitOrder,
+    submitted
+  } = useContext(CartContext);
 
-  console.log('localstorage', cartItems)
+
 
   if (!user) {
     return (
@@ -19,6 +23,15 @@ function ShoppingCart() {
       </div>
     )
   }
+
+  if (submitted) {
+    return (
+      <div className='container'>
+        <h1>Your order was submitted successfully!</h1>
+      </div>
+    )
+  }
+
   if (user && cartItems.length === 0) {
     return (
       <div className="container">
@@ -28,12 +41,33 @@ function ShoppingCart() {
     )
   }
 
+  const renderCakesInCart = cartItems.map( (cake, index) =>
+    <div key={cake.cake_id}>
+      <span>{index + 1}. {cake.name} </span>
+      <img className="cart-cake-img"src={cake.image}/>
+      <p>
+        Quantity:
+        <AiFillMinusCircle onClick={()=>removeFromCart(cake)}/>
+        {cake.quantity}
+        <AiFillPlusCircle onClick={()=>addToCart(cake)}/>
+      </p>
+      <span>Unit Price: ${cake.price} </span>
+      <span>Sub-Total: ${ (cake.quantity * cake.price).toFixed(2) }</span>
+    </div>
+  )
+
+  const orderTotal = cartItems.reduce( (total, currentCake) =>
+    total + currentCake.price * currentCake.quantity, 0)
+
   return (
     <div className="container">
       <section className="cart-container">
       <h1>Shopping Cart</h1>
+      {renderCakesInCart}
       </section>
+      <p>Order Total: ${orderTotal.toFixed(2)}</p>
       <button className='btn'onClick={clearCart}>Clear Cart</button>
+      <button className='btn'onClick={submitOrder}>Submit Order</button>
     </div>
   )
 }
