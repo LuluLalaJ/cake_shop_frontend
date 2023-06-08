@@ -1,5 +1,12 @@
+
 #cake-image {
     height : 500px;
     width: auto;
     text-align: center
 }
+
+.review-textarea {
+    width: 100%;
+    min-height: 10rem;
+}
+

@@ -25,28 +25,6 @@ export const ReviewProvider = ({ children }) => {
     })
   }
 
-  // useEffect(() => {
-  //   fetch('/favorites')
-  //   .then(r => {
-  //     if (r.status === 200) {
-  //       r.json().then(favs => setFavorites(favs))
-  //     }
-  //   })
-  // }, [])
-
-  // function addFavoriteCake(id) {
-  //     fetch('/favorites', {
-  //       method: 'POST',
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "Accepts" : "application/json"
-  //       },
-  //       body: JSON.stringify({cake_id: id})
-  //     })
-  //       .then(r=>r.json())
-  //       .then(data => setFavorites([...favorites, data])
-  //       )
-  //   }
 
     function deleteReviewByReviewId(id) {
         fetch(`/reviews/${id}`, {
@@ -59,10 +37,31 @@ export const ReviewProvider = ({ children }) => {
         })
     }
 
+    function submitReviewByCakeId(id, content) {
+
+      const review = {
+        'cake_id': id,
+        'content': content
+      }
+
+      fetch('/reviews', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(review)
+      }).then(res => {
+        if (res.status === 201) {
+          res.json().
+          then(data => setReviews([...reviews, data]))
+        }
+      })
+    }
+
 
   return (
     <ReviewContext.Provider
-        value={{ reviews, getReviewByUserId, getReviewsByCakeId, deleteReviewByReviewId}}
+        value={{ reviews, getReviewByUserId, getReviewsByCakeId, deleteReviewByReviewId, submitReviewByCakeId}}
     >
         {children}
     </ReviewContext.Provider>
