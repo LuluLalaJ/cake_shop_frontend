@@ -15,6 +15,16 @@ export const ReviewProvider = ({ children }) => {
     })
   }
 
+  function getReviewByUserId(userId) {
+    fetch(`/users/reviews/${userId}`)
+        .then(r => {
+        if (r.status === 200) {
+          r.json()
+          .then(data => setReviews(data))
+      }
+    })
+  }
+
   // useEffect(() => {
   //   fetch('/favorites')
   //   .then(r => {
@@ -52,7 +62,7 @@ export const ReviewProvider = ({ children }) => {
 
   return (
     <ReviewContext.Provider
-        value={{ reviews, getReviewsByCakeId, deleteReviewByReviewId}}
+        value={{ reviews, getReviewByUserId, getReviewsByCakeId, deleteReviewByReviewId}}
     >
         {children}
     </ReviewContext.Provider>
