@@ -7,6 +7,7 @@ import ShoppingCart from "./components/shoppingcart/ShoppingCart";
 import Cakes from "./components/cakes/Cakes";
 import CakeCard from "./components/cakes/CakeCard";
 import Checkout from "./components/checkout/Checkout";
+import Favorites from "./components/favorites/Favorites";
 import Login from "./components/login/Login";
 import Logout from "./components/logout/Logout";
 import Signup from "./components/signup/Signup";
@@ -28,8 +29,30 @@ function App() {
       .then((r) => r.json())
       .then(cakes => setCakes(cakes))
   }, []);
-  
 
+
+  const [favorite, setFavorite] = useState([])
+
+  useEffect(() => {
+    fetch('/favorites')
+    .then(r => r.json())
+    .then(favs => setFavorite(favs))
+  }, [])
+
+  function addFavoriteCake(id) {
+      fetch('/favorites', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+          "Accepts" : "application/json"
+        },
+        body: JSON.stringify({cake_id: id})
+      })
+        .then(r=>r.json())
+        .then(data => setFavorite([...favorite, data]))
+    }
+
+  console.log('fav list', favorite)
 
   return(
     <Router>
@@ -37,9 +60,10 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/about" component={About}/>
-        <Route path="/cakes"  render={(props) => <Cakes {...props} cakes = {cakes}/>} />
+        <Route path="/cakes"  render={(props) => <Cakes {...props} cakes = {cakes} addFavoriteCake = {addFavoriteCake}/>} />
         <Route path="/shoppingcart" component={ShoppingCart}/>
         <Route path="/checkout" component={Checkout} />
+        <Route path="/favorites" render={(props) => <Favorites {...props} favorite = {favorite}/>} />
         <Route path="/login" component={Login}/>
         <Route path="/logout" component={Logout} />
         <Route path="/signup" component={Signup} />
@@ -49,4 +73,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

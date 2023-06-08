@@ -4,12 +4,13 @@ import './cakes.css'
 import { CartContext } from '../../context/CartContext'
 
 
-function CakeCard({cake}) {
+
+function CakeCard({cake, addFavoriteCake}) {
   const { addToCart } = useContext(CartContext);
 
   return (
     <Figure className="cake-card">
-     <Figure.Image
+      <Figure.Image
         src={cake.image}
         className='cake-image'
         />
@@ -19,8 +20,10 @@ function CakeCard({cake}) {
         <p>{cake.description} </p>
       </Figure.Caption>
       <br></br>
+
       <button className='btn' onClick={(e)=>addToCart(cake)}>Add to Cart</button>
-      <button className='btn'>Add to Favorites</button>
+      <button className='btn' onClick = {() => addFavoriteCake(cake.id)} >Add to Favorites</button>
+
     </Figure>
   )
 }
