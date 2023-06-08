@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const UserContext = React.createContext()
 
@@ -26,7 +26,7 @@ export const UserProvider = ({ children }) => {
     fetch('/logout', {
       method: "DELETE"
     }).then( res => {
-      if (res.status == 204) {
+      if (res.status === 204) {
         setUser(null)
       }
     })

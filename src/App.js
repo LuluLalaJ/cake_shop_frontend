@@ -5,7 +5,6 @@ import Nav from "./components/nav/Nav";
 import About from "./components/about/About";
 import ShoppingCart from "./components/shoppingcart/ShoppingCart";
 import Cakes from "./components/cakes/Cakes";
-import CakeCard from "./components/cakes/CakeCard";
 import Checkout from "./components/checkout/Checkout";
 import Favorites from "./components/favorites/Favorites";
 import Login from "./components/login/Login";

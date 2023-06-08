@@ -1,5 +1,4 @@
 import React from 'react'
-import CakeCard from '../cakes/CakeCard';
 
 function Favorites({favorite}) {
 
@@ -12,20 +11,20 @@ function Favorites({favorite}) {
     )
   }
 
-  const renderFav = favorite.map( fav => {
-    const cake = fav.cake
-    return (
-      <>
-        <p>{cake.name}</p>
-        <img src={cake.image}/>
-      </>
-    )
-  })
+  // const renderFav = favorite.map( fav => {
+  //   const cake = fav.cake
+  //   return (
+  //     <>
+  //       <p>{cake.name}</p>
+  //       <img src={cake.image}/>
+  //     </>
+  //   )
+  // })
 
   return (
     <div className='container'>
         <h1>Here are your favorites</h1>
-        {renderFav}
+        {/* {renderFav} */}
     </div>
   )
 }

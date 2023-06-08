@@ -1,4 +1,4 @@
-import React, {useEffect, useState}  from 'react';
+import React from 'react';
 import Figure from 'react-bootstrap/Figure';
 import CakeCard from './CakeCard';
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import { useFormik } from "formik";
@@ -32,7 +32,7 @@ function Signup() {
         },
         body: JSON.stringify(values, null, 2),
       }).then((res) => {
-        if (res.status == 201) {
+        if (res.status === 201) {
           refresh();
         }
       });

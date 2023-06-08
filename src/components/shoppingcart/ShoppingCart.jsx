@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext'
 import { UserContext } from '../../context/UserContext';
 import { AiFillPlusCircle, AiFillMinusCircle} from 'react-icons/ai'
@@ -44,7 +44,7 @@ function ShoppingCart() {
   const renderCakesInCart = cartItems.map( (cake, index) =>
     <div key={cake.cake_id}>
       <span>{index + 1}. {cake.name} </span>
-      <img className="cart-cake-img"src={cake.image}/>
+      <img className="cart-cake-img" src={cake.image} alt={cake.name}/>
       <p>
         Quantity:
         <AiFillMinusCircle onClick={()=>removeFromCart(cake)}/>
