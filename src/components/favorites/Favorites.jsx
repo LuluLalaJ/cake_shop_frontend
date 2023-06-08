@@ -1,9 +1,23 @@
 import React, { useContext } from 'react';
 import FavoriteCard from './FavoriteCard';
+import { Link} from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
 import { FavoriteContext } from '../../context/FavoriteContext';
 
 function Favorites() {
   const { favorites } = useContext(FavoriteContext);
+  const { user } = useContext(UserContext);
+
+  if (!user) {
+    return (
+      <div className="container">
+        <h1>You're not logged in yet!</h1>
+        <h2><Link to="/login">Log in or create an account to start your favorites list!</Link></h2>
+        <br></br>
+        <Link to="/login"><button className="btn">Get Started</button></Link>
+      </div>
+    )
+  }
 
   if (favorites.length === 0) {
     return (

@@ -1,0 +1,22 @@
+.cake-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    place-items: center; */
+}
+
+.cake-card {
+    flex-basis: 50%;
+    padding: 15px;
+    text-align: center;
+}
+
+.cake-info > p {
+    line-height: 1.2;
+}
+
+.cake-image {
+    height: 400px;
+}
