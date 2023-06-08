@@ -37,6 +37,7 @@ function Nav() {
         Cart
       </NavLink>
 
+
       {!user
       ? (
         <NavLink to="/login" className="nav-link">
@@ -44,9 +45,15 @@ function Nav() {
         </NavLink>
       )
       : (
-        <button className="btn" onClick={logout}>
-          Logout
-        </button>
+        <>
+          <NavLink to="/mypage" className="nav-link">
+            My Page
+          </NavLink>
+          <button className="btn" onClick={logout}>
+            Logout
+          </button>
+        </>
+
       )
       }
 

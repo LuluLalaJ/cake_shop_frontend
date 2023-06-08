@@ -37,7 +37,7 @@ function Login() {
   });
 
   if (user) {
-    return <Redirect to="/"/>;
+    return <Redirect to="/mypage"/>;
   }
 
   return (
