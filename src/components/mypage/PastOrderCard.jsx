@@ -2,8 +2,7 @@ import React from 'react';
 import PastCakeCard from './PastCakeCard';
 
 function PastOrderCard({order}) {
-  
-  console.log('inside order card', order)
+
     return (
     <div>
          {/* some bugs related to slice here - needs to be fixed */}

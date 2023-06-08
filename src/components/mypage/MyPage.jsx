@@ -3,12 +3,13 @@ import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { UserContext } from '../../context/UserContext';
 import { ReviewContext } from '../../context/ReviewContext';
 import PastOrderCard from './PastOrderCard'
+import MyPageReviewCard from './MyPageReviewCard';
 
 import './mypage.css'
 
 function MyPage() {
   const { user, refresh} = useContext(UserContext);
-  const { reviews, deleteReviewByReviewId, getReviewByUserId } = useContext(ReviewContext)
+  const { reviews, deleteReviewByReviewId, getReviewByUserId, editReviewByReviewId } = useContext(ReviewContext)
   const [ orders, setOrders ]= useState([])
 
   useEffect( () => {
@@ -34,17 +35,11 @@ function MyPage() {
     }
   }, [user])
 
-  console.log(reviews)
-
   const renderReviews = reviews.map ( review =>
-    <div key={review.id}>
-      <h3>- Created: {review.created_at} </h3>
-      <li>• Cake: {review.cake.name} </li>
-      <li>• Review: {review.content} </li>
-      <button className="btn" onClick={()=>deleteReviewByReviewId(review.id)}>Delete the review</button>
-
-    </div>
-
+      <MyPageReviewCard key={review.id}
+      review={review}
+      deleteReviewByReviewId={deleteReviewByReviewId}
+      editReviewByReviewId={editReviewByReviewId}/>
   )
 
   if (!user) return (

@@ -25,7 +25,10 @@ function PastCakeCard({order}) {
             </button>
             <li>Quantity: {quantity} </li>
         </ul>
-        {showReviewForm && <ReviewForm cakeId={id} submitReview={(submitReview)}/>}
+        {showReviewForm && <ReviewForm
+        cakeId={id}
+        submitReview={submitReview}
+        />}
     </div>
 
   )
