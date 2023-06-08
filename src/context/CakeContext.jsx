@@ -4,14 +4,13 @@ export const CakeContext = React.createContext()
 
 export const CakeProvider = ({ children }) => {
 
-    const [reviewCake, setReviewCake] = useState ([]);
+    const [reviewCake, setReviewCake] = useState ({});
 
     function getReviewCakeByCakeId(cakeId) {
         fetch( `/cakes/${cakeId}`)
         .then( r => {
             if (r.status === 200) {
-                r.json()
-                .then(console.log())
+                r.json().then(data => setReviewCake(data))
                 // .then(data => setReviewCake(data))
             }
         })
@@ -20,7 +19,7 @@ export const CakeProvider = ({ children }) => {
 
     return (
         <CakeContext.Provider
-            value={{reviewCake, setReviewCake, getReviewCakeByCakeId }}
+            value={{reviewCake, getReviewCakeByCakeId }}
         >
             {children}
         </CakeContext.Provider>

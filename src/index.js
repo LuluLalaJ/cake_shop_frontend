@@ -6,6 +6,7 @@ import { UserProvider } from "./context/UserContext";
 import { CartProvider } from "./context/CartContext";
 import { FavoriteProvider }  from "./context/FavoriteContext";
 import { ReviewProvider } from "./context/ReviewContext";
+import { CakeProvider } from "./context/CakeContext";
 
 function Root() {
     return (
@@ -13,7 +14,9 @@ function Root() {
             <UserProvider>
                 <FavoriteProvider>
                     <ReviewProvider>
-                        <App />
+                        <CakeProvider>
+                            <App />
+                        </CakeProvider>
                     </ReviewProvider>
                 </FavoriteProvider>
             </UserProvider>
