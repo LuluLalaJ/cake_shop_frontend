@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { ReviewContext } from '../../context/ReviewContext';
 import { CakeContext } from '../../context/CakeContext';
 import ReviewCard from './ReviewCard'
-import CakeCard from './../cakes/CakeCard';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import "./review.css"
 
 function Review({}) {
@@ -39,6 +39,9 @@ function Review({}) {
       <h1> Reviews</h1>
       <img id = 'cake-image'src = {image}></img>
       <h1>{name}</h1>
+      <Link to = {`/cakes`}><button className='btn' >Back To Cakes</button></Link>
+      <br></br>
+      <br></br>
       {reviews.map( review => <ReviewCard key={review.id} review={review}/>)}
     </div>
   )
