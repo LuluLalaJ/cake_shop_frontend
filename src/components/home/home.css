@@ -16,7 +16,7 @@
     background-color: var(--color-bg-variant);
 }
 
-p {
+.content > p {
     line-height: 2;
     max-width: 25rem;
     margin-bottom: 2rem;
