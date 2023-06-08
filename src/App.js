@@ -23,11 +23,14 @@ import MyPage from './components/mypage/MyPage'
 function App() {
 
   const [cakes, setCakes] = useState([])
+
+
   useEffect(() => {
     fetch("/cakes")
       .then((r) => r.json())
       .then(cakes => setCakes(cakes))
   }, []);
+
 
   return(
     <Router>
