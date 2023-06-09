@@ -75,6 +75,9 @@ a:hover {
     cursor: pointer;
     border: 1px solid var(--color-primary);
     transition: var(--transition);
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
 
 }
 

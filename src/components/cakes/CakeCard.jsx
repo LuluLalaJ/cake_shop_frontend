@@ -27,6 +27,7 @@ function CakeCard({cake}) {
         ? <p>{description.slice(0,150)}... </p>
         : <p>{description}</p>
         }
+        <br></br>
         <button onClick={()=>setIsShort(!isShort)} className='btn'>
           {isShort
           ? "Read more"
@@ -38,11 +39,9 @@ function CakeCard({cake}) {
 
       <button className='btn' onClick={(e)=>addToCart(cake)}>Add to Cart</button>
       <button className='btn' onClick = {() => addFavoriteCake(id)} >Add to Favorites</button>
-      {/* <br></br>
-      <br></br> */}
+
       <Link to = {`/reviews/${cake.id}`}><button className='btn' >Reviews</button></Link>
     
-
     </Figure>
   )
 }
