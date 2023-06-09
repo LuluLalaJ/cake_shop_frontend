@@ -32,16 +32,17 @@ function FavoriteCard({ fav_id, cake, index}) {
   }
 
   return (
-    <div className='cake-container'>
+    <div className='fav-container'>
 
 
-      <Figure className="cake-card">
+      < <Figure className="fav-card">
+
         <Figure.Image
           src={image}
           alt={name}
-          className='cake-image'
+          className='fav-image'
           />
-        <Figure.Caption className='cake-info'>
+        <Figure.Caption className='fav-info'>
           <h2>{index}. {cake.name}</h2>
           <br></br>
           <h3>$ {price} </h3>
