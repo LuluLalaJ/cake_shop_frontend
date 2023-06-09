@@ -55,6 +55,7 @@ function CakeCard({cake}) {
         ? <p>{description.slice(0,150)}... </p>
         : <p>{description}</p>
         }
+        <br></br>
         <button onClick={()=>setIsShort(!isShort)} className='btn'>
           {isShort
           ? "Read more"
@@ -71,7 +72,6 @@ function CakeCard({cake}) {
       <Link to = {`/reviews/${cake.id}`}><button className='btn' >Reviews</button></Link>
       {addToCartAlert && <p className='alert'>Added to cart</p>}
       {addToFavAlert && <p className='alert'>Added to favorites</p>}
-
 
     </Figure>
   )
