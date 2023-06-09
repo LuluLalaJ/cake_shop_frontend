@@ -12,10 +12,10 @@ function Favorites() {
   if (!user) {
     return (
       <div className="main-container">
-        <h1>You're not logged in yet!</h1>
-        <h2><Link to="/login">Log in or create an account to start your favorites list!</Link></h2>
+        <h1 >You're not logged in yet!</h1>
+        <h2 ><Link to="/login">Log in or create an account to start your favorites list!</Link></h2>
         <br></br>
-        <Link to="/login"><button className="btn">Get Started</button></Link>
+        <Link to="/login" ><button className="btn">Get Started</button></Link>
       </div>
     )
   }
