@@ -23,6 +23,14 @@ function FavoriteCard({ fav_id, cake, index}) {
     setAddToCartAlert(true)
   }
 
+  if (!cake) {
+    return (
+      <div className="container">
+        <h1>Loading the cake...</h1>
+      </div>
+    )
+  }
+
   return (
     <div className='cake-container'>
 

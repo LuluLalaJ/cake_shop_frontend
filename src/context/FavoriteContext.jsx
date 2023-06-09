@@ -24,9 +24,11 @@ export const FavoriteProvider = ({ children }) => {
         },
         body: JSON.stringify({cake_id: id})
       })
-        .then(r=>r.json())
-        .then(data => setFavorites([...favorites, data])
-        )
+        .then( r => {
+          if (r.status === 201) {
+            r.json().then(data => setFavorites([...favorites, data]))
+          }
+        })
     }
 
     function removeFromFav(id) {
