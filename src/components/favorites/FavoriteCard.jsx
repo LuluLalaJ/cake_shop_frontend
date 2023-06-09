@@ -35,7 +35,7 @@ function FavoriteCard({ fav_id, cake, index}) {
     <div className='fav-container'>
 
 
-      < <Figure className="fav-card">
+      <Figure className="fav-card">
 
         <Figure.Image
           src={image}
