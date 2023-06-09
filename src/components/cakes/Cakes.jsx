@@ -14,8 +14,8 @@ function Cakes({cakes}) {
 
 
   return(
-    <div className='container'>
-      <h1>Cakes Page</h1>
+    <div className='main-container'>
+      <h1 className = 'header'>Explore Our Cakes!</h1>
       <Figure className='cake-container'>
         {renderCakes}
       </Figure>
